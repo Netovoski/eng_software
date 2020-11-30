@@ -5,7 +5,7 @@ from django.db import models
 
 class Curso(models.Model):
 	nome_curso = models.CharField( max_length=50, null=False, blank=False)
-	precoprod = models.DecimalField( max_digits=8, decimal_places=2, null=False, blank=False )
+	#precoprod = models.DecimalField( max_digits=8, decimal_places=2, null=False, blank=False )
     
 	id_instituicao = models.ForeignKey(Instituicao, on_delete=models.CASCADE)
 

@@ -12,7 +12,7 @@ from appprincipal.instituicao.models import *
 from appprincipal.curso.models import *
 
 
-class Cliente(models.Model):
+class Usuario(models.Model):
 	user = models.OneToOneField(User, null=True, on_delete= models.CASCADE)
 	nome = models.CharField(max_length=200, null=True)
 	tel = models.CharField(max_length=200, null=True)
