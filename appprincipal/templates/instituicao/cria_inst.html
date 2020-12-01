@@ -1,0 +1,19 @@
+{% load widget_tweaks %}
+{% block conteudo %}
+
+
+
+<div class="container mt-3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Nome Instituicao</label>
+            {% render_field form.nome_instituicao %}
+        </div>
+        <button type="submit">Cadastrar Instituicao</button>
+
+    </form>
+</div>
+
+
+{% endblock %}

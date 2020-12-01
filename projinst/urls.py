@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('appprincipal.urls', namespace='appprincipal')),
     path('regis/', include('appprincipal.registration.urls')), 
     path('curso/', include('appprincipal.curso.urls')),
+    path('insti/', include('appprincipal.instituicao.urls')),
 ]
