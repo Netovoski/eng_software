@@ -16,20 +16,37 @@ from django.utils.decorators import method_decorator
 from django.shortcuts import render, redirect
 import requests
 
-class InstituicaoCreateView(CreateView):
-    template_name = "instituicao/cria_inst.html"
-    model = Instituicao
-    form_class = RegistrarUniversidadeCentralForm
-    success_url = "#"
+# class InstituicaoCreateView(CreateView):
+#     template_name = "instituicao/cria_inst.html"
+#     model = Instituicao
+#     form_class = RegistrarUniversidadeCentralForm
+#     success_url = "#"
 
-    def get(self, request):
-        return render(request, self.template_name)
+#     def get(self, request):
+#         return render(request, self.template_name)
 
-class DirigenteCreateView(CreateView):
-    template_name = "instituicao/cria_dirigente.html"
-    model = Dirigente
-    form_class = RegistrarDirigenteForm
-    success_url = "#"
+# class DirigenteCreateView(CreateView):
+#     template_name = "instituicao/cria_dirigente.html"
+#     model = Dirigente
+#     form_class = RegistrarDirigenteForm
+#     success_url = "#"
 
-    def get(self, request):
-        return render(request, self.template_name)
+#     def get(self, request):
+#         return render(request, self.template_name)
+
+class CriarInstituicaoParceiraCreateView(CreateView):
+    #Dirigente
+
+class AtualizarDadosInstituicaoParceiraUpdateView(UpdateView):
+    #Diretor
+
+class CriarInstValidadoraCreateView(CreateView):
+    #Superintendente
+
+class AtualizarDadosInstituicaoValidadoraUpdateView(UpdateView):
+    #Superintendente
+
+class ValidarInsituicaoParceira():
+    #Superintendente valida (recebe/repassa) dados criados pelo dirigente 
+
+

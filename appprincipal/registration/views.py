@@ -71,3 +71,25 @@ def logoutUser(request):
     logout(request)
     return redirect("registration:login")
 
+class RecuperarSenha():
+
+class ConsultarListaInstituicao():
+	#Us17 X R7
+
+class CadastrarNovosUsuariosCreateView(CreateView):
+	#Diretor (POde criar dirigente - Outro diretor - funcionario) - Parceira
+	#Superintende (POde criar dirigente - Outro superintende - Coordenador do Care - funcionario) - Validadora
+
+class ExcluirUsuariosDeleteView(DeleteView):
+	#Diretor (POde Excluir dirigente - Outro diretor - funcionario)
+	#Superintende (POde deletar dirigente - Outro superintende - Coordenador do Care - funcionario)
+
+class AtualizaUsuariosDeleteView(DeleteView):
+	#Diretor (POde atualizar dirigente - Outro diretor - funcionario)
+	#Superintende (POde atualizar dirigente - Outro superintende - Coordenador do Care - funcionario)
+
+class ConsultarUsuarioListView(ListView):
+	#Diretor (POde consultar users)
+	#Superintende (POde consultar users)
+
+
