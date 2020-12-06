@@ -16,37 +16,43 @@ from django.utils.decorators import method_decorator
 from django.shortcuts import render, redirect
 import requests
 
-# class InstituicaoCreateView(CreateView):
-#     template_name = "instituicao/cria_inst.html"
-#     model = Instituicao
-#     form_class = RegistrarUniversidadeCentralForm
-#     success_url = "#"
 
-#     def get(self, request):
-#         return render(request, self.template_name)
+class InstituicaoTemplateView(TemplateView):
+    template_name = "instituicao/instacesso.html"
+    @method_decorator(login_required, allowed_users(allowed_roles=['customer']))
+    def get (self, request):
+        return render(request, self.template_name)
+# # class InstituicaoCreateView(CreateView):
+# #     template_name = "instituicao/cria_inst.html"
+# #     model = Instituicao
+# #     form_class = RegistrarUniversidadeCentralForm
+# #     success_url = "#"
 
-# class DirigenteCreateView(CreateView):
-#     template_name = "instituicao/cria_dirigente.html"
-#     model = Dirigente
-#     form_class = RegistrarDirigenteForm
-#     success_url = "#"
+# #     def get(self, request):
+# #         return render(request, self.template_name)
 
-#     def get(self, request):
-#         return render(request, self.template_name)
+# # class DirigenteCreateView(CreateView):
+# #     template_name = "instituicao/cria_dirigente.html"
+# #     model = Dirigente
+# #     form_class = RegistrarDirigenteForm
+# #     success_url = "#"
 
-class CriarInstituicaoParceiraCreateView(CreateView):
-    #Dirigente
+# #     def get(self, request):
+# #         return render(request, self.template_name)
 
-class AtualizarDadosInstituicaoParceiraUpdateView(UpdateView):
-    #Diretor
+# class CriarInstituicaoParceiraCreateView(CreateView):
+#     #Dirigente
 
-class CriarInstValidadoraCreateView(CreateView):
-    #Superintendente
+# class AtualizarDadosInstituicaoParceiraUpdateView(UpdateView):
+#     #Diretor
 
-class AtualizarDadosInstituicaoValidadoraUpdateView(UpdateView):
-    #Superintendente
+# class CriarInstValidadoraCreateView(CreateView):
+#     #Superintendente
 
-class ValidarInsituicaoParceira():
-    #Superintendente valida (recebe/repassa) dados criados pelo dirigente 
+# class AtualizarDadosInstituicaoValidadoraUpdateView(UpdateView):
+#     #Superintendente
+
+# class ValidarInsituicaoParceira():
+#     #Superintendente valida (recebe/repassa) dados criados pelo dirigente 
 
 

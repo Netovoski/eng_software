@@ -16,7 +16,7 @@ class Curso(models.Model):
     grau_curso = models.DecimalField(null=True, max_digits=12, decimal_places=2, blank=True)
     cod_emec = models.IntegerField(max_length=8, null=False, blank=False)    
         
-    data_autorização = models.DateTimeField(auto_now_add= False, null=True)
+    data_autorizacao = models.DateTimeField(auto_now_add= False, null=True)
     data_reconhecimento = models.DateTimeField(auto_now_add= False, null=True)
     data_renovacao = models.DateTimeField(auto_now_add= False, null=True)
 

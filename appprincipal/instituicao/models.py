@@ -19,19 +19,19 @@ class Inst(models.Model):
     credenciamento = models.IntegerField()
     mantenedora = models.CharField(max_length=50,null=False,blank=False)
     descricao = models.CharField(max_length=200, null=True)   
-    dirigente = models.ForeignKey(Dirigente,on_delete=models.CASCADE)#senha não mostra
+    #dirigente = models.ForeignKey(Dirigente,on_delete=models.CASCADE)#senha não mostra
     funcionario = models.ForeignKey(Usuario,on_delete=models.CASCADE)
 
     def __str__(self):#confirmação
         return self.nome_instituicao
 
-class Inst_Validadora(models):
-    #herda inst
-    #superintendente/ coordenador do Care
+# class Inst_Validadora(models):
+#     #herda inst
+#     #superintendente/ coordenador do Care
     
-class Inst_Parceira(models):
-    #herda inst
-    #Diretor
+# class Inst_Parceira(models):
+#     #herda inst
+#     #Diretor
 
 
 

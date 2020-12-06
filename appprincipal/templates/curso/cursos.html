@@ -1,0 +1,45 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+<!-- Bloco de conteúdo da nossa página -->
+
+{% block conteudo %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Cursos Ofertados:</h5>
+
+            <p class="card-text">
+
+            </p>
+
+            <form method="post">
+                            
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Tipo do Curso</th>
+            <th>Grau do Curso</th>
+            <th>Codigo e-MEC</th>
+            <th></th>
+        </tr>
+    </thead>              
+                   
+    
+        <tbody>  {% for cursos in cursos %} <tr>
+                <td>{{ cursos.nome_curso }}</td>
+                <td>{{ cursos.grau_curso }}</td>
+                <td>{{ cursos.cod_emec }}</td> 
+                <td><a href="{% url 'curso:update_curso' cursos.id %}" class="btn btn-primary" >Atualizar</a></td>
+                <td><a href="{% url 'curso:deleta_curso' cursos.id %}" class="btn btn-danger" >Deletar</a></td>
+            </tr> {% endfor %}
+        </tbody>
+    
+               
+            </form>
+</table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

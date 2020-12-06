@@ -1,0 +1,20 @@
+
+
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+
+<!-- Bloco que define o <title></title> da nossa página -->
+{% block title %}Página Inicial{% endblock %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% block conteudo %}
+
+<div class="container mt-5">
+<h2><a href="#">Cursos</a></h2>
+</br>
+	<p class="mb-3">Funções </p>
+<a href="{% url 'curso:curso_cadast' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cadastrar Cursos</a></br></br>
+<a href="{% url 'curso:lista_curso' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Lista Cursos Cadastrados</a>
+
+{% endblock %}

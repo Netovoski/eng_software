@@ -8,7 +8,7 @@ from appprincipal.instituicao.views import *
 app_name = 'instituicao'
 
 urlpatterns = [
-    path('cria_instituicao/', InstituicaoCreateView.as_view(), name="cria_instituicao"),
-    path('cria_dirigente/', DirigenteCreateView.as_view(), name="cria_dirigente"),
-
+    # path('cria_instituicao/', InstituicaoCreateView.as_view(), name="cria_instituicao"),
+    # path('cria_dirigente/', DirigenteCreateView.as_view(), name="cria_dirigente"),
+    path('institucional/', InstituicaoTemplateView.as_view(), name = "institucional"),
 ]

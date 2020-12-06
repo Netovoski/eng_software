@@ -19,10 +19,15 @@ import requests
 from appprincipal.curso.models import *
 # Create your views here.
 
+class CursoTemplateView(TemplateView):
+    template_name = "curso/cursoacesso.html"
+    @method_decorator(login_required, allowed_users(allowed_roles=['customer']))
+    def get (self, request):
+        return render(request, self.template_name)
 
-class CadastCursoCreateView(CreateView):
+class Cadast_CursoCreateView(CreateView):
     #funcionario
-    template_name = "#"
+    template_name = "curso/cadast_curso.html"
     model = Curso
     form_class = RegistrarTipoCursoForm
     success_url = reverse_lazy("appprincipal:index")
@@ -34,35 +39,35 @@ class CadastCursoCreateView(CreateView):
 @login_required
 def CursoListView(ListView):
     #funcionario
-    curso = Curso.objects.all()
+    cursos = Curso.objects.all()
     
     contexto = {
-        'curso': curso
+        'cursos': cursos
     }
 
-    return render(ListView, "#",contexto)
+    return render(ListView, "curso/cursos.html",contexto)
 
 
 class CursoUpdateView(LoginRequiredMixin, UpdateView):
     #funcionario
-    template_name = "#"
+    template_name = "curso/atualiza_curso.html"
     model = Curso
     fields = '__all__'
     context_object_name = "curso"
-    success_url = reverse_lazy("#")
-    # @method_decorator(login_required)
+    success_url = reverse_lazy("appprincipal:index")
+    #@method_decorator(login_required)
     # #@method_decorator(allowed_users(allowed_roles=['admin','gerente']))
-    # def get (self, request):
+    # def get (self, request, pk):
 
     #     return render(request, self.template_name)
 
-
 class CursoDeleteView(LoginRequiredMixin, DeleteView):
-    #funcionario
-    template_name = "#"
+    template_name = "curso/exclui_curso.html"
     model = Curso
     context_object_name =  'Curso'
+    #success_url = reverse_lazy("appprincipal:lista_produto")
+    #@method_decorator(login_required)
+    #@method_decorator(allowed_users(allowed_roles=['admin', 'gerente']))
     def get_success_url (self):
-
-        return reverse("#")
-
+#funcionario
+        return reverse("curso:lista_curso")

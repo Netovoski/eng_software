@@ -1,0 +1,50 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+
+<!-- Bloco de conteúdo da nossa página -->
+
+{% block conteudo %}
+
+
+
+<div class="container mt-3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Nome do Curso</label>
+            {% render_field form.nome_curso %}
+        </div>
+        <div class="form-group">
+            <label>Grau Curso</label>
+            {% render_field form.grau_curso %}
+        </div>
+        <div class="form-group">
+            <label>Código e-MEC</label>
+            {% render_field form.cod_emec %}
+        </div>
+        <div class="form-group">
+            <label>Data Autorização</label>
+            {% render_field form.data_autorizacao %}
+        </div>
+        <div class="form-group">
+            <label>Data Reconhecimento</label>
+            {% render_field form.data_reconhecimento %}
+        </div>
+        <div class="form-group">
+            <label>Data Renovação</label>
+            {% render_field form.data_renovacao %}
+        </div>
+        <div class="form-group">
+            <label>Observacao</label>
+            {% render_field form.observacao %}
+        </div>
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+</div>
+
+
+{% endblock %}

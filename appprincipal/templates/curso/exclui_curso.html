@@ -1,0 +1,30 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+<!-- Bloco de conteúdo da nossa página -->
+
+{% block conteudo %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Exclusão de Produto</h5>
+
+            <p class="card-text">
+                Você tem certeza que quer excluir o produto <b>{{ produto.nmproduto }}</b>?
+            </p>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <hr />
+                <div class="text-right">
+                    <a href="{% url 'curso:lista_curso' %}" class="btn btn-outline-danger">
+                        Cancelar
+                    </a>
+                    <button class="btn btn-danger">Excluir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
