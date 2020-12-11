@@ -33,10 +33,11 @@
         Escolha a instituição a qual deseja ingressar:
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Instituição Validadora</button>
-        <button type="button" class="btn btn-primary">Instituição Parceira</button>
+        <td><a href="{% url 'instituicao:cria_dirigentepar'  %}" class="btn btn-secondary">Instituição Parceira</a></td>
+        <td><a href="{% url 'instituicao:cria_super'  %}" class="btn btn-primary">Instituição Validadora</a></td>
       </div>
     </div>
   </div>
 </div>
 {% endblock %}
+

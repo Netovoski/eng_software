@@ -24,7 +24,7 @@
                         <!-- Preço -->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Codigo e-MEC</span>
+                                <span class="input-group-text">Grau Curso/span>
                             </div>
                             {% render_field form.grau_curso class+="form-control" %}
                         </div>  
@@ -32,13 +32,37 @@
                         
                         <div class="input-group mb-3">
                          <div class="input-group-prepend">
-                            <span class="input-group-text">Grau do Curso</span>
+                            <span class="input-group-text">Cód e-MEC</span>
                         </div>
                             {% render_field form.cod_emec class+="form-control" %}
-                        </div>                     
+                        </div>     
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Data Autorização</span>
+                            </div>
+                            {% render_field form.data_autorizacao class+="form-control" %}
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Data Reconhecimento</span>
+                            </div>
+                            {% render_field form.data_reconhecimento class+="form-control" %}
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Data Renovação</span>
+                            </div>
+                            {% render_field form.data_renovacao class+="form-control" %}
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Observação</span>
+                            </div>
+                            {% render_field form.observacao class+="form-control" %}
+                        </div>
                         <hr />
                         <div class="text-right">
-                            <a href="{% url 'appprincipal:index' %}" class="btn btn-outline-primary">Voltar</a>
+                            <a href="{% url 'curso:lista_curso' %}" class="btn btn-outline-primary">Voltar</a>
                             <button type="submit" class="btn btn-primary">Atualiza</button>
                         </div>
                     </form>

@@ -1,0 +1,45 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+<!-- Bloco de conteúdo da nossa página -->
+
+{% block conteudo %}
+<a href="{% url 'registration:cria_users' %}" class="btn btn-primary btn-lg active" role="button"
+    aria-pressed="true">Próximo</a>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Lista Instituicões Parceiras:</h5>
+
+            <p class="card-text">
+
+            </p>
+
+            <form method="post">
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome Instituicao Parceira</th>
+                            
+                            <th></th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody> {% for instpar in instpar %} <tr>
+                            <td>{{ instpar.nome_instituicao }}</td>
+
+                        <td><a href="{% url 'instituicao:update_instpar' instpar.id %}" class="btn btn-primary">Atualizar</a></td>
+                        </tr> {% endfor %}
+
+                    </tbody>
+                    <td><a href="{% url 'instituicao:cria_instpar' %}" class="btn btn-outline-info">Criar Instituição Parceira</a></td> </br></br>
+                    
+
+            </form>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

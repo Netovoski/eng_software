@@ -1,0 +1,51 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+<!-- Bloco de conteúdo da nossa página -->
+
+{% block conteudo %}
+<a href="{% url 'curso:curso_cadast' %}" class="btn btn-primary btn-lg active" role="button"
+    aria-pressed="true">Próximo</a>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Usuarios do Sistema:</h5>
+
+            <p class="card-text">
+
+            </p>
+
+            <form method="post">
+                            
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Login</th>
+            <th>e-mail</th>
+            <th>Update</th>
+            <th>Deletar</th>
+            
+            <th></th>
+        </tr>
+    </thead>              
+                   
+ 
+        <tbody>  {% for usuarios in Usuario %} <tr>
+                <td>{{ usuarios.id }}</td>
+                <td>{{ usuarios.username }}</td>
+                <td>{{ usuarios.email }}</td>
+                <td><a href="{% url 'registration:update_users' usuarios.id %}" class="btn btn-primary" >Atualizar</a></td>
+                <td><a href="{% url 'registration:deletar' usuarios.id %}" class="btn btn-danger" >Deletar</a></td>
+                
+            </tr> {% endfor %}
+        </tbody>
+    
+               
+            </form>
+</table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

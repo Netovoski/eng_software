@@ -1,0 +1,48 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+{% block conteudo %}
+
+<div class="container mt-5">
+    <h2>Cadastrar Diretor Instituição Parceira</h2>
+    </br>
+
+<div class="container mt-3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Nome do Usuario Diretor Parceira</label></br>
+            {% render_field form.user %}
+        </div>
+        <div class="form-group">
+            <label>Nome do Diretor Institucional da Parceira</label></br>
+            {% render_field form.nome %}
+        </div>
+        <div class="form-group">
+            <label>Sobrenome</label></br>
+            {% render_field form.sobrenome %}
+        </div>
+        <div class="form-group">
+            <label>cpf</label></br>
+            {% render_field form.cpf %}
+        </div>
+        <div class="form-group">
+            <label>Telefone</label></br>
+            {% render_field form.tel %}
+        </div>
+        <div class="form-group">
+            <label>Email</label></br>
+            {% render_field form.email %}
+        </div>
+
+        <button type="submit">Cadastrar Diretor da Inst Parceira</button></br></br>
+        <a href="{% url 'instituicao:lista_instpar'  %}" class="btn btn-primary btn-lg active" role="button"
+            aria-pressed="true">Próximo</a>
+    </form>
+</div>
+
+
+{% endblock %}
+
+

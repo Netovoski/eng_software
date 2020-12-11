@@ -1,0 +1,53 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+{% block conteudo %}
+<div class="container mt-5">
+    <h2>Cadastrar Instituição Parceira</h2>
+    </br>
+<div class="container mt-3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Nome Instituicao Parceira</label></br>
+            {% render_field form.nome_instituicao %}
+        </div>
+        <div class="form-group">
+            <label>Endereço</label></br>
+            {% render_field form.endereco %}
+        </div>
+        <div class="form-group">
+            <label>Cidade</label></br>
+            {% render_field form.cidade %}
+        </div>
+        <div class="form-group">
+            <label>Estado</label></br>
+            {% render_field form.estado %}
+        </div>
+        <div class="form-group">
+            <label>Credenciamento</label></br>
+            {% render_field form.credenciamento %}
+        </div>
+        <div class="form-group">
+            <label>Mantenedora</label></br>
+            {% render_field form.mantenedora %}
+        </div>
+        <div class="form-group">
+            <label>Descrição</label></br>
+            {% render_field form.descricao %}
+        </div>
+            <div class="form-group">
+                <label>Dirigente</label></br>
+                {% render_field form.dirigente %}
+            </div>
+    
+        <button type="submit">Cadastrar Instituicao Parceira</button></br></br>
+        <a href="{% url 'instituicao:cria_diretor' %}" class="btn btn-primary btn-lg active" role="button"
+            aria-pressed="true">Próximo</a>
+
+    </form>
+</div>
+
+
+{% endblock %}

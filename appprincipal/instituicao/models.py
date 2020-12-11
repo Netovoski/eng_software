@@ -11,7 +11,9 @@ from appprincipal.registration.models import *
 
 
 class Inst(models.Model):
-	
+    class Meta:
+        abstract = True	
+
     nome_instituicao = models.CharField(max_length=50,null=False,blank=False)
     endereco = models.CharField("Endereço",max_length=100)
     cidade = models.CharField("Cidade",max_length=100)
@@ -20,16 +22,34 @@ class Inst(models.Model):
     mantenedora = models.CharField(max_length=50,null=False,blank=False)
     descricao = models.CharField(max_length=200, null=True)   
     #dirigente = models.ForeignKey(Dirigente,on_delete=models.CASCADE)#senha não mostra
-    funcionario = models.ForeignKey(Usuario,on_delete=models.CASCADE)
+    #funcionario = models.ForeignKey(Usuario,on_delete=models.CASCADE)
 
     def __str__(self):#confirmação
         return self.nome_instituicao
 
-# class Inst_Validadora(models):
+class Inst_Par(Inst):
+    
+    dirigente = models.OneToOneField(User, on_delete = models.CASCADE ) #colocar tipo usuario
+    #diretor = models.ForeignKey(User, on_delete = models.CASCADE ) #colocar tipo usuario
+
+class Inst_Val(Inst):
+    
+    superitende = models.OneToOneField(User, on_delete = models.CASCADE ) #colocar tipo usuario
+    #diretor = models.ForeignKey(User, on_delete = models.CASCADE ) #colocar tipo usuario
+
+
+
+
+# class Inst_Parc(Inst):
+#     diretor = models.CharField(max_length=50,null=False,blank=False)
+
+
+
+# class Inst_Val(models):
 #     #herda inst
 #     #superintendente/ coordenador do Care
     
-# class Inst_Parceira(models):
+# class Inst_Parc(models):
 #     #herda inst
 #     #Diretor
 

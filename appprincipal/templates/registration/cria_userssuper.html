@@ -1,0 +1,22 @@
+
+
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+
+<!-- Bloco que define o <title></title> da nossa página -->
+{% block title %}Página Inicial{% endblock %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% block conteudo %}
+<a href="{% url 'registration:usuarios' %}" class="btn btn-primary btn-lg active" role="button"
+	aria-pressed="true">Próximo</a>
+<div class="container mt-5">
+<h2>Cadastro Novos Usuarios</a></h2>
+</br>
+	<p class="mb-3">Funções </p>
+<a href="{% url 'instituicao:cria_dirigentepar' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cadastrar Dirigente </a></br></br>
+<a href="{% url 'instituicao:cria_super' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cadastrar Superintendente</a></br></br>
+<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Coordenador CARE</a></br></br>
+<a href="#" class="btn btn-primary btn-lg active" role="button"aria-pressed="true">Cadastrar Funcionario</a></br></br>
+{% endblock %}

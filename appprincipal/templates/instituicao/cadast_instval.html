@@ -1,0 +1,58 @@
+{% extends "appprincipal/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+{% block conteudo %}
+
+
+
+<div class="container mt-3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Nome Instituicao Validadora</label></br>
+            {% render_field form.nome_instituicao %}
+        </div>
+        <div class="form-group">
+            <label>Endereço</label></br>
+            {% render_field form.endereco %}
+        </div>
+        <div class="form-group">
+            <label>Cidade</label></br>
+            {% render_field form.cidade %}
+        </div>
+        <div class="form-group">
+            <label>Estado</label></br>
+            {% render_field form.estado %}
+        </div>
+        <div class="form-group">
+            <label>Credenciamento</label></br>
+            {% render_field form.credenciamento %}
+        </div>
+        <div class="form-group">
+            <label>Mantenedora</label></br>
+            {% render_field form.mantenedora %}
+        </div>
+        <div class="form-group">
+            <label>Descrição</label></br>
+            {% render_field form.descricao %}
+        </div>
+            <div class="form-group">
+                <label>Superitende Usuario</label></br>
+                {% render_field form.superitende %}
+            </div>
+    
+        <button type="submit">Cadastrar Instituicao Validadora</button></br></br>
+        <a href="{% url 'instituicao:lista_instval' %}" class="btn btn-primary btn-lg active" role="button"
+            aria-pressed="true">Próximo</a>
+        </form>
+        </div>
+
+
+    </form>
+</div>
+
+
+{% endblock %}
+
+
+

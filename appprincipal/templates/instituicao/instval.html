@@ -1,0 +1,35 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+<!-- Bloco de conteúdo da nossa página -->
+
+{% block conteudo %}
+<div class="container mt-5">
+   
+
+            <form method="post">
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome Instituicao Validadora</th>
+                            
+                            <th></th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody> {% for instval in instval %} <tr>
+                            <td>{{ instval.nome_instituicao }}</td>
+                                                    <td><a href="{% url 'instituicao:update_instval' instval.id %}" class="btn btn-primary">Atualizar</a></td>
+                                                    
+                        </tr> {% endfor %}
+                    </tbody>
+
+
+            </form>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

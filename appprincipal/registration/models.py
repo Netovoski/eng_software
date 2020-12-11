@@ -8,12 +8,13 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 # from appprincipal.diploma.models import *
-# from appprincipal.instituicao.models import *
+from appprincipal.instituicao.models import *
 # from appprincipal.curso.models import *
 
 
 class Usuario(models.Model):
-	#user = models.CharField(max_length=200, null=True ) #colocar tipo usuario
+	user = models.CharField(max_length=200, null=True ) #colocar tipo usuario
+	#instituicao = models.ForeignKey(Inst,on_delete=models.CASCADE)
 	nome = models.CharField(max_length=200, null=True)
 	sobrenome = models.CharField(max_length=200, null=True)
 	cpf = models.CharField(max_length=200, null=True)
@@ -32,13 +33,48 @@ class Tipo_Usuario(models.Model):
 	def __str__(self):
 		return self.tipo_user
 
-# class Dirigente(models.Model):#cadastra instituição parceira 
 
-#     email = models.OneToOneField(Usuario, on_delete=models.CASCADE)
-#     nome = models.CharField(max_length=255, null=False, blank=False)
-#     sobrenome = models.CharField( max_length=255,null=False, blank=False)
-#     cpf = models.IntegerField()
-#     e_mail = models.CharField( max_length=255,null=False, blank=False)
+class DirigentePar(models.Model):#cadastra instituição parceira / Validadora
+	user = models.OneToOneField(User, on_delete = models.CASCADE ) #colocar tipo usuario
+	nome = models.CharField(max_length=200, null=True)
+	sobrenome = models.CharField(max_length=200, null=True)
+	cpf = models.CharField(max_length=200, null=True)
+	tel = models.CharField(max_length=200, null=True)
+	email = models.CharField(max_length=200, null=True)
 
-#     def __str__(self):
-#         return self.email
+	def __str__(self):
+		return self.user
+
+class DiretorPar(models.Model):#cadastra instituição parceira / Validadora
+	user = models.OneToOneField(User, on_delete = models.CASCADE ) #colocar tipo usuario
+	nome = models.CharField(max_length=200, null=True)
+	sobrenome = models.CharField(max_length=200, null=True)
+	cpf = models.CharField(max_length=200, null=True)
+	tel = models.CharField(max_length=200, null=True)
+	email = models.CharField(max_length=200, null=True)
+
+	def __str__(self):
+		return self.user
+
+
+class DirigenteVal(models.Model):#cadastra instituição parceira / Validadora
+	user = models.OneToOneField(User, on_delete = models.CASCADE ) #colocar tipo usuario
+	nome = models.CharField(max_length=200, null=True)
+	sobrenome = models.CharField(max_length=200, null=True)
+	cpf = models.CharField(max_length=200, null=True)
+	tel = models.CharField(max_length=200, null=True)
+	email = models.CharField(max_length=200, null=True)
+
+	def __str__(self):
+		return self.user
+
+class SuperVal(models.Model):#cadastra instituição parceira / Validadora
+	user = models.OneToOneField(User, on_delete = models.CASCADE ) #colocar tipo usuario
+	nome = models.CharField(max_length=200, null=True)
+	sobrenome = models.CharField(max_length=200, null=True)
+	cpf = models.CharField(max_length=200, null=True)
+	tel = models.CharField(max_length=200, null=True)
+	email = models.CharField(max_length=200, null=True)
+
+	def __str__(self):
+		return self.user

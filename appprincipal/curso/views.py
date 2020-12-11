@@ -21,7 +21,8 @@ from appprincipal.curso.models import *
 
 class CursoTemplateView(TemplateView):
     template_name = "curso/cursoacesso.html"
-    @method_decorator(login_required, allowed_users(allowed_roles=['customer']))
+    @method_decorator(login_required)
+    @method_decorator(allowed_users(allowed_roles=['admin', 'gerente']))
     def get (self, request):
         return render(request, self.template_name)
 
@@ -30,8 +31,9 @@ class Cadast_CursoCreateView(CreateView):
     template_name = "curso/cadast_curso.html"
     model = Curso
     form_class = RegistrarTipoCursoForm
-    success_url = reverse_lazy("appprincipal:index")
+    success_url = reverse_lazy("curso:lista_curso")
     @method_decorator(login_required)
+    @method_decorator(allowed_users(allowed_roles=['admin', 'gerente']))
     def get (self, request):
 
         return render(request, self.template_name)
@@ -44,7 +46,7 @@ def CursoListView(ListView):
     contexto = {
         'cursos': cursos
     }
-
+    
     return render(ListView, "curso/cursos.html",contexto)
 
 
@@ -54,9 +56,10 @@ class CursoUpdateView(LoginRequiredMixin, UpdateView):
     model = Curso
     fields = '__all__'
     context_object_name = "curso"
-    success_url = reverse_lazy("appprincipal:index")
+    success_url = reverse_lazy("curso:lista_curso")
+    #@method_decorator(allowed_users(allowed_roles=['admin','gerente']))
     #@method_decorator(login_required)
-    # #@method_decorator(allowed_users(allowed_roles=['admin','gerente']))
+    # 
     # def get (self, request, pk):
 
     #     return render(request, self.template_name)
