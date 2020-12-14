@@ -31,6 +31,8 @@ class Inst_Par(Inst):
     
     dirigente = models.OneToOneField(User, on_delete = models.CASCADE ) #colocar tipo usuario
     #diretor = models.ForeignKey(User, on_delete = models.CASCADE ) #colocar tipo usuario
+    def __str__(self):#confirmação
+        return self.nome_instituicao
 
 class Inst_Val(Inst):
     

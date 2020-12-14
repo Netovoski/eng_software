@@ -21,6 +21,7 @@
             <th>Tipo do Curso</th>
             <th>Grau do Curso</th>
             <th>Codigo e-MEC</th>
+            <th>Nome da Instituição</th>
             <th></th>
         </tr>
     </thead>              
@@ -30,6 +31,7 @@
                 <td>{{ cursos.nome_curso }}</td>
                 <td>{{ cursos.grau_curso }}</td>
                 <td>{{ cursos.cod_emec }}</td> 
+                <td>{{ cursos.nome_inst }}</td>
                 <td><a href="{% url 'curso:update_curso' cursos.id %}" class="btn btn-primary" >Atualizar</a></td>
                 <td><a href="{% url 'curso:deleta_curso' cursos.id %}" class="btn btn-danger" >Deletar</a></td>
             </tr> {% endfor %}

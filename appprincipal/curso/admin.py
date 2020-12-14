@@ -4,4 +4,3 @@ from django.contrib import admin
 from appprincipal.curso.models import *
 # Register your models here.
 
-admin.site.register(Curso)

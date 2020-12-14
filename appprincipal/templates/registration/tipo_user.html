@@ -1,0 +1,26 @@
+{% extends "appprincipal/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+{% block conteudo %}
+
+
+
+<div class="container mt-3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Criar Tipos de Cargos</label></br>
+            {% render_field form.tipo_user %}
+        </div>
+        <button type="submit">Cadastrar Cargo</button></br></br>
+        <a href="{% url 'instituicao:lista_instval' %}" class="btn btn-primary btn-lg active" role="button"
+            aria-pressed="true">Próximo</a>
+    </form>
+</div>
+
+
+</form>
+</div>
+
+
+{% endblock %}

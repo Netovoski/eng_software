@@ -22,7 +22,7 @@ from appprincipal.curso.models import *
 class CursoTemplateView(TemplateView):
     template_name = "curso/cursoacesso.html"
     @method_decorator(login_required)
-    @method_decorator(allowed_users(allowed_roles=['admin', 'gerente']))
+    @method_decorator(allowed_users(allowed_roles=['funcionario', 'coord', 'super', 'dirigente', 'diretor', 'admin']))
     def get (self, request):
         return render(request, self.template_name)
 
@@ -33,7 +33,7 @@ class Cadast_CursoCreateView(CreateView):
     form_class = RegistrarTipoCursoForm
     success_url = reverse_lazy("curso:lista_curso")
     @method_decorator(login_required)
-    @method_decorator(allowed_users(allowed_roles=['admin', 'gerente']))
+    @method_decorator(allowed_users(allowed_roles=['funcionario', 'super', 'diretor', 'admin']))
     def get (self, request):
 
         return render(request, self.template_name)
@@ -57,9 +57,7 @@ class CursoUpdateView(LoginRequiredMixin, UpdateView):
     fields = '__all__'
     context_object_name = "curso"
     success_url = reverse_lazy("curso:lista_curso")
-    #@method_decorator(allowed_users(allowed_roles=['admin','gerente']))
-    #@method_decorator(login_required)
-    # 
+   #@method_decorator(allowed_users(allowed_roles=['funcionario', 'super', 'diretor', 'admin']))    
     # def get (self, request, pk):
 
     #     return render(request, self.template_name)
@@ -67,10 +65,9 @@ class CursoUpdateView(LoginRequiredMixin, UpdateView):
 class CursoDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "curso/exclui_curso.html"
     model = Curso
-    context_object_name =  'Curso'
-    #success_url = reverse_lazy("appprincipal:lista_produto")
+    context_object_name =  'curso'
     #@method_decorator(login_required)
-    #@method_decorator(allowed_users(allowed_roles=['admin', 'gerente']))
+    #@method_decorator(allowed_users(allowed_roles=['funcionario', 'super', 'diretor', ]))
     def get_success_url (self):
-#funcionario
+
         return reverse("curso:lista_curso")

@@ -30,13 +30,15 @@ from appprincipal.registration.models import *
 
 class RegistrationTemplateView(TemplateView):
     template_name = "registration/register.html"
-    @method_decorator(login_required, allowed_users(allowed_roles=['customer']))
+    @method_decorator(allowed_users(allowed_roles=['admin', 'coord', 'super','dirigente', 'diretor']))
+    @method_decorator(login_required)
     def get (self, request):
         return render(request, self.template_name)
 
 class UsuariosCriarTemplateView(TemplateView):
     template_name = "registration/cria_users.html"
-    @method_decorator(login_required, allowed_users(allowed_roles=['customer']))
+    @method_decorator(allowed_users(allowed_roles=['admin', 'super', 'diretor']))
+    @method_decorator(login_required)
     def get (self, request):
         return render(request, self.template_name)
 
@@ -44,10 +46,8 @@ class UsuariosCriarTemplateView(TemplateView):
 
 class UsuariosCriarSuperTemplateView(TemplateView):
     template_name = "registration/cria_userssuper.html"
-    @method_decorator(login_required, allowed_users(allowed_roles=['customer']))
-    def get (self, request):
-        return render(request, self.template_name)
-
+	
+	
 @unauthenticated_user
 def registerPage(request):
 
@@ -97,30 +97,12 @@ class UsuarioDeleteView(DeleteView):
     model = User
     context_object_name =  'usuario'
     #success_url = reverse_lazy("appprincipal:lista_produto")
-    #@method_decorator(login_required)
-    #@method_decorator(allowed_users(allowed_roles=['admin', 'gerente']))
+    # @method_decorator(login_required)
+    # @method_decorator(allowed_users(allowed_roles=['admin', 'super']))
     def get_success_url (self):
-#funcionario
         return reverse('registration:usuarios')
 
-# @login_required
-# def UsersListView(ListView):
-    
-#     usuarios = Usuario.objects.all()
-    
-#     contexto = {
-#         'usuarios': usuarios
-#     }
 
-#     return render(ListView, "registration/usuarios.html",contexto)
-	
-
-# US3 - Confuso
-# US16
-# US17
-
-
-# 	@permission_required('ver_todos_os_usuarios')
 @login_required
 def UsersListView(request):
     usuario = User.objects.all()
@@ -143,35 +125,40 @@ def profileUpdate(request):
 	}
 	return render(request, 'registration/profile.html', context)
 
-class UsersUpdateView(LoginRequiredMixin, UpdateView):
+class UsersUpdateView(UpdateView):
     template_name = "registration/atualiza_user.html"
     model = User
-    fields = '__all__'
+    fields = ['username', 'email']
     context_object_name = "usuario"
     success_url = reverse_lazy("appprincipal:index")
+    # def get (self, request):
+
+    #     return render(request, self.template_name)
+	
+
+class Cadast_TipoUsersCreateView(CreateView):
+    template_name = "registration/tipo_user.html"
+    model = Tipo_Usuario
+    form_class = RegistrarTipoUserForm
+    success_url = reverse_lazy("appprincipal:index")
+    @method_decorator(login_required)
+	#@method_decorator(allowed_users(allowed_roles=['admin', 'super']))
+
+    def get (self, request):
+
+        return render(request, self.template_name)
+
+class Cadast_UserCreateView(CreateView):
+    template_name = "instituicao/cadast_usuario.html"
+    model = Usuario
+    form_class = RegistrarUserForm
+    success_url = reverse_lazy("appprincipal:index")
+    @method_decorator(login_required)
+	#@method_decorator(allowed_users(allowed_roles=['admin', 'super']))
+    def get (self, request):
+
+        return render(request, self.template_name)
 
 
-
-
-# class RecuperarSenha():
-
-# class ConsultarListaInstituicao():
-# 	#Us17 X R7
-
-# class CadastrarNovosUsuariosCreateView(CreateView):
-# 	#Diretor (POde criar dirigente - Outro diretor - funcionario) - Parceira
-# 	#Superintende (POde criar dirigente - Outro superintende - Coordenador do Care - funcionario) - Validadora
-
-# class ExcluirUsuariosDeleteView(DeleteView):
-# 	#Diretor (POde Excluir dirigente - Outro diretor - funcionario)
-# 	#Superintende (POde deletar dirigente - Outro superintende - Coordenador do Care - funcionario)
-
-# class AtualizaUsuariosDeleteView(DeleteView):
-# 	#Diretor (POde atualizar dirigente - Outro diretor - funcionario)
-# 	#Superintende (POde atualizar dirigente - Outro superintende - Coordenador do Care - funcionario)
-
-# class ConsultarUsuarioListView(ListView):
-# 	#Diretor (POde consultar users)
-# 	#Superintende (POde consultar users)
 
 

@@ -24,6 +24,8 @@ urlpatterns = [
     path('cria_diretor/', Cadast_DiretorParCreateView.as_view(), name="cria_diretor"),
     path('cria_superval/', Cadast_SuperValCreateView.as_view(), name="cria_super"),
 
+    path('cria_func/', Cadast_FuncionarioCreateView.as_view(), name="cria_func"),
+
     path('instpar/', views.InstParListView, name = "lista_instpar"),
     path('instval/', views.InstValListView, name = "lista_instval"),
 

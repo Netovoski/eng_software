@@ -38,6 +38,13 @@ class RegistrarSuperValForm(forms.ModelForm):
     class Meta:
         model = SuperVal
         fields='__all__'
+
+class RegistrarUsuarioForm(forms.ModelForm):
+
+    class Meta:
+        model = Usuario
+        fields='__all__'
+
 # class RegistrarInst_ParForm(forms.ModelForm):
 
 #     class Meta:

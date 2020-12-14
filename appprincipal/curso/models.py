@@ -12,7 +12,10 @@ from appprincipal.instituicao.models import *
 
 class Curso(models.Model):
 
+    nome_inst = models.ForeignKey(Inst_Par, on_delete = models.CASCADE )
+    
     nome_curso = models.CharField(max_length=50, null=False, blank=False)
+    
     grau_curso = models.DecimalField(null=True, max_digits=12, decimal_places=2, blank=True)
     cod_emec = models.TextField(max_length=10, null=False, blank=False)    
         
